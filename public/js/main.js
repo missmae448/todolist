@@ -1,22 +1,23 @@
-const deleteBtn = document.querySelectorAll('.fa-trash')
+const deleteBtn = document.querySelectorAll('.fa-trash') //selects trashcan icon
 const item = document.querySelectorAll('.item span')
 const itemCompleted = document.querySelectorAll('.item span.completed')
 
+//event listener for 
 Array.from(deleteBtn).forEach((element)=>{
     element.addEventListener('click', deleteItem)
 })
-
+//evemt listener to mark boxes and complete 
 Array.from(item).forEach((element)=>{
     element.addEventListener('click', markComplete)
 })
-
+//event listener 
 Array.from(itemCompleted).forEach((element)=>{
     element.addEventListener('click', markUnComplete)
 })
 
 async function deleteItem(){
     const itemText = this.parentNode.childNodes[1].innerText
-    try{
+    try{ 
         const response = await fetch('deleteItem', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},

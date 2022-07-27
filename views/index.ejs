@@ -18,9 +18,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Todo List: </h1>
+    <h1>Todo List: </h1>  
     <ul class="todoItems">
-    <% for(let i=0; i < items.length; i++) {%>
+    
+    <!--for loop goes through the items array list, loops through each item until desire item found-->
+        <% for(let i=0; i < items.length; i++) {%>
         <li class="item">
             <% if(items[i].completed === true) {%>
                 <span class='completed'><%= items[i].thing %></span>
@@ -36,6 +38,10 @@
 
     <h2>Add A Todo:</h2>
 
+
+    <!-- client side input , CREATE
+    
+    "todoItem" is the variable that store the client input-->
     <form action="/addTodo" method="POST">
         <input type="text" placeholder="Thing To Do" name="todoItem">
         <input type="submit">
